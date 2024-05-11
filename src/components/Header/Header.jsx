@@ -1,4 +1,24 @@
-const Header = () => {
+import { useState } from "react";
+
+const Header = ({ setCards, cards }) => {
+  const [isOpen, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen((prev) => !prev);
+  }
+
+  const onCardAdd = () => {
+    const newCard = {
+      id: Date.now(),
+      title: "TEST",
+      topic: "Research",
+      date: "12.05.24",
+      status: "Без статуса"
+    };
+    const newCardList = [...cards, newCard];
+    setCards(newCardList);
+  }
+
   return (
     <header className="header">
       <div className="container">
@@ -14,16 +34,14 @@ const Header = () => {
             </a>
           </div>
           <nav className="header__nav">
-            <button className="header__btn-main-new _hover01" id="btnMainNew">
-              <a href="#popNewCard">Создать новую задачу</a>
+            <button className="header__btn-main-new _hover01" onClick={onCardAdd}>
+              Создать новую задачу
             </button>
-            <a href="#user-set-target" className="header__user _hover02">
+            <div className="header__user _hover02" onClick={handleOpen}>
               Ivan Ivanov
-            </a>
-            <div
-              className="header__pop-user-set pop-user-set"
-              id="user-set-target"
-            >
+            </div>
+            {isOpen && (
+            <div className="header__pop-user-set pop-user-set">
               <p className="pop-user-set__name">Ivan Ivanov</p>
               <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
               <div className="pop-user-set__theme">
@@ -38,6 +56,7 @@ const Header = () => {
                 <a href="#popUser">Выйти</a>
               </button>
             </div>
+            )}
           </nav>
         </div>
       </div>

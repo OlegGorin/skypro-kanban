@@ -1,10 +1,21 @@
-const Card = ({ category, title, date, colorTheme, color }) => {
+// import { cardList } from "../../../data";
+
+// const Card = ({ category, title, date, colorTheme, color }) => {
+const Card = ({ topic, title, date }) => {
+  const colorList = {
+      "Web Design": "_orange",
+      Research: "_green",
+      Copywriting: "_purple",
+    }
+
+  const colorClass = colorList[topic] || "";
+
   return (
     <div className="cards__item">
       <div className="cards__card card">
         <div className="card__group">
-          <div className={colorTheme}>
-            <p className={color}>{category}</p>
+          <div className={`card__theme ${colorClass}`}>
+            <p className={colorClass}>{topic}</p>
           </div>
           <a href="#popBrowse" target="_self">
             <div className="card__btn">
