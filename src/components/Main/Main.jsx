@@ -23,17 +23,17 @@ const Main = ({ cardList }) => {
       <div className="container">
         <div className="main__block">
           <div className="main__content">
-            {isLoading &&
-              <p>Данные загружаются...</p>
-            }
+            {isLoading && (
+              <p className="data__loading">Данные загружаются...</p>
+            )}
             {!isLoading &&
-            statusList.map((status) => (
-              <Column
-                key={status}
-                title={status}
-                cardList={cardList.filter((card) => card.status === status)}
-              />
-            ))}
+              statusList.map((status) => (
+                <Column
+                  key={status}
+                  title={status}
+                  cardList={cardList.filter((card) => card.status === status)}
+                />
+              ))}
           </div>
         </div>
       </div>
