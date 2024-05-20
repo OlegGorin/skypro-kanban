@@ -6,19 +6,23 @@ import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import { useState } from "react";
 import { cardList } from "../data";
+import { GlobalStyle, Wrapper } from "./global.styled";
 
 function App() {
-const [cards, setCards] =useState(cardList);
+  const [cards, setCards] = useState(cardList);
 
   return (
-    <div className="wrapper">
-      <PopUser />
-      <PopNewCard />
-      <PopBrowse />
+    <>
+      <GlobalStyle />
+      <Wrapper>
+        <PopUser />
+        <PopNewCard />
+        <PopBrowse />
 
-      <Header setCards={setCards} cards={cards} />
-      <Main cardList={cards} />
-    </div>
+        <Header setCards={setCards} cards={cards} />
+        <Main cardList={cards} />
+      </Wrapper>
+    </>
   );
 }
 

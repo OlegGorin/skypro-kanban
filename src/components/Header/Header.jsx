@@ -1,11 +1,14 @@
 import { useState } from "react";
+// import { GlobalStyle } from "./global.styled";
+import { Container } from "../../global.styled";
+import * as H from "./Header.styled";
 
 const Header = ({ setCards, cards }) => {
   const [isOpen, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen((prev) => !prev);
-  }
+  };
 
   const onCardAdd = () => {
     const newCard = {
@@ -13,54 +16,50 @@ const Header = ({ setCards, cards }) => {
       title: "TEST",
       topic: "Research",
       date: "12.05.24",
-      status: "Без статуса"
+      status: "Без статуса",
     };
     const newCardList = [...cards, newCard];
     setCards(newCardList);
-  }
+  };
 
   return (
-    <header className="header">
-      <div className="container">
-        <div className="header__block">
-          <div className="header__logo _show _light">
+    <H.Header>
+      <Container>
+        <H.HeaderBlock>
+          <H.HeaderLogoLight>
             <a href="" target="_self">
-              <img src="../public/logo.png" alt="logo"></img>
+              <H.Img src="../public/logo.png" alt="logo"></H.Img>
             </a>
-          </div>
-          <div className="header__logo _dark">
+          </H.HeaderLogoLight>
+          <H.HeaderLogoDark>
             <a href="" target="_self">
-              <img src="../public/logo_dark.png" alt="logo"></img>
+              <H.Img src="../public/logo_dark.png" alt="logo"></H.Img>
             </a>
-          </div>
-          <nav className="header__nav">
-            <button className="header__btn-main-new _hover01" onClick={onCardAdd}>
+          </H.HeaderLogoDark>
+          <H.HeaderNav>
+            <H.HeaderBtnMainNew $primary onClick={onCardAdd}>
               Создать новую задачу
-            </button>
-            <div className="header__user _hover02" onClick={handleOpen}>
+            </H.HeaderBtnMainNew>
+            <H.HeaderUser onClick={handleOpen}>
               Ivan Ivanov
-            </div>
+            </H.HeaderUser>
             {isOpen && (
-            <div className="header__pop-user-set pop-user-set">
-              <p className="pop-user-set__name">Ivan Ivanov</p>
-              <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-              <div className="pop-user-set__theme">
-                <p>Темная тема</p>
-                <input
-                  type="checkbox"
-                  className="checkbox"
-                  name="checkbox"
-                ></input>
-              </div>
-              <button type="button" className="_hover03">
-                <a href="#popUser">Выйти</a>
-              </button>
-            </div>
+              <H.HeaderPopUserSet>
+                <H.PopUserSetName>Ivan Ivanov</H.PopUserSetName>
+                <H.PopUserSetMail>ivan.ivanov@gmail.com</H.PopUserSetMail>
+                <H.PopUserSetTheme>
+                  <H.PopUserSetThemeP>Темная тема</H.PopUserSetThemeP>
+                  <H.Input></H.Input>
+                </H.PopUserSetTheme>
+                <H.HeaderBtnHover03>
+                  <a href="#popUser">Выйти</a>
+                </H.HeaderBtnHover03>
+              </H.HeaderPopUserSet>
             )}
-          </nav>
-        </div>
-      </div>
-    </header>
+          </H.HeaderNav>
+        </H.HeaderBlock>
+      </Container>
+    </H.Header>
   );
 };
 
