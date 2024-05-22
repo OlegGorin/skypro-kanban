@@ -1,20 +1,38 @@
 import Column from "../Column/Column";
+import { useEffect, useState } from "react";
+import { statusList } from "../../../StatusList";
+import * as S from "./Main.styled";
+import { Container } from "../../global.styled";
 
-const Main = () => {
+const Main = ({ cardList }) => {
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
-    <main className="main">
-      <div className="container">
-        <div className="main__block">
-          <div className="main__content">
-            <Column title="Без статуса" />
-            <Column title="Нужно сделать" />
-            <Column title="В работе" />
-            <Column title="Тестирование" />
-            <Column title="Готово" />
-          </div>
-        </div>
-      </div>
-    </main>
+    <S.Main>
+      <Container>
+        <S.MainBlock>
+          <S.MainContent>
+            {isLoading ? (
+              <S.DataLoading>Данные загружаются...</S.DataLoading>
+            ) : (
+              statusList.map((status) => (
+                <Column
+                  key={status}
+                  title={status}
+                  cardList={cardList.filter((card) => card.status === status)}
+                />
+              ))
+            )}
+          </S.MainContent>
+        </S.MainBlock>
+      </Container>
+    </S.Main>
   );
 };
 

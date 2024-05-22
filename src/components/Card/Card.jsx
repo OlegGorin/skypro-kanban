@@ -1,25 +1,32 @@
-const Card = ({ category, title, date, colorTheme, color }) => {
+import { CardTopic, TopicText } from "./Card.styled";
+import { colorList } from "../../../data.js";
+import * as Cd from "./Card.styled"
+
+const Card = ({ topic, title, date }) => {
+  const colorClass = colorList[topic] || "";
+
   return (
-    <div className="cards__item">
-      <div className="cards__card card">
-        <div className="card__group">
-          <div className={colorTheme}>
-            <p className={color}>{category}</p>
-          </div>
+    <Cd.CardsItem>
+      <Cd.CardsCard>
+        <Cd.CardGroup>
+          <CardTopic $topicColor={colorClass}>
+            <TopicText>{topic}</TopicText>
+          </CardTopic>
+
           <a href="#popBrowse" target="_self">
-            <div className="card__btn">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
+            <Cd.CardBtn>
+              <Cd.CardBtnDiv></Cd.CardBtnDiv>
+              <Cd.CardBtnDiv></Cd.CardBtnDiv>
+              <Cd.CardBtnDiv></Cd.CardBtnDiv>
+            </Cd.CardBtn>
           </a>
-        </div>
-        <div className="card__content">
+        </Cd.CardGroup>
+        <Cd.CardContent>
           <a href="" target="_blank">
-            <h3 className="card__title">{title}</h3>
+            <Cd.CardTitle>{title}</Cd.CardTitle>
           </a>
-          <div className="card__date">
-            <svg
+          <Cd.CardDate>
+            <Cd.CardDateSvg
               xmlns="http://www.w3.org/2000/svg"
               width="13"
               height="13"
@@ -46,12 +53,12 @@ const Card = ({ category, title, date, colorTheme, color }) => {
                   <rect width="13" height="13" fill="white" />
                 </clipPath>
               </defs>
-            </svg>
-            <p>{date}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+            </Cd.CardDateSvg>
+            <Cd.CardDateP>{date}</Cd.CardDateP>
+          </Cd.CardDate>
+        </Cd.CardContent>
+      </Cd.CardsCard>
+    </Cd.CardsItem>
   );
 };
 
