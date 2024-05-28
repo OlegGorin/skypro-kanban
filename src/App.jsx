@@ -10,9 +10,7 @@ import ExitPage from "./pages/ExitPage/ExitPage";
 import { useNavigate } from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
-// export let isQuit = null;
-
-function App() {
+const App = () => {
   // const isAuth = false;
 
   const [isAuth, setAuth] = useState(false);
@@ -26,12 +24,13 @@ function App() {
     NOT_FOUND: "*",
   };
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-const login = (e) => {
-  e.preventDefault();
-  setAuth(true);
-  navigate(appRoutes.MAIN);
+  const login = (e) => {
+    e.preventDefault();
+    setAuth(true);
+    navigate(appRoutes.MAIN);
+  };
 
   return (
     <Routes>
@@ -42,7 +41,7 @@ const login = (e) => {
         </Route>
       </Route>
 
-      <Route path={appRoutes.LOGIN} element={<LoginPage login = {login} />} />
+      <Route path={appRoutes.LOGIN} element={<LoginPage login={login} />} />
       <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
       <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} />
     </Routes>
