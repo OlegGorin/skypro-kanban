@@ -1,28 +1,51 @@
-import "./App.css";
-import PopUser from "./components/Popups/PopUser";
-import PopNewCard from "./components/Popups/PopNewCard";
-import PopBrowse from "./components/Popups/PopBrowse";
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import { Route, Routes } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+
+import LoginPage from "./pages/LoginPage/LoginPage";
+import MainPage from "./pages/MainPage/MainPage";
+import CardPage from "./pages/CardPage/CardPage";
 import { useState } from "react";
-import { cardList } from "../data";
-import { GlobalStyle, Wrapper } from "./global.styled";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import ExitPage from "./pages/ExitPage/ExitPage";
+import { useNavigate } from "react-router-dom";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
+
+// export let isQuit = null;
 
 function App() {
-  const [cards, setCards] = useState(cardList);
+  // const isAuth = false;
+
+  const [isAuth, setAuth] = useState(false);
+
+  const appRoutes = {
+    LOGIN: "/login",
+    REGISTER: "/register",
+    MAIN: "/",
+    CARD: "/card/:id",
+    EXIT: "/exit",
+    NOT_FOUND: "*",
+  };
+
+const navigate = useNavigate();
+
+const login = (e) => {
+  e.preventDefault();
+  setAuth(true);
+  navigate(appRoutes.MAIN);
 
   return (
-    <>
-      <GlobalStyle />
-      <Wrapper>
-        <PopUser />
-        <PopNewCard />
-        <PopBrowse />
+    <Routes>
+      <Route element={<PrivateRoute isAuth={isAuth} />}>
+        <Route path={appRoutes.MAIN} element={<MainPage />}>
+          <Route path={appRoutes.CARD} element={<CardPage />} />
+          <Route path={appRoutes.EXIT} element={<ExitPage />} />
+        </Route>
+      </Route>
 
-        <Header setCards={setCards} cards={cards} />
-        <Main cardList={cards} />
-      </Wrapper>
-    </>
+      <Route path={appRoutes.LOGIN} element={<LoginPage login = {login} />} />
+      <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
+      <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} />
+    </Routes>
   );
 }
 
