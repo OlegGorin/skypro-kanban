@@ -10,12 +10,7 @@ import ExitPage from "./pages/ExitPage/ExitPage";
 import { useNavigate } from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
-const App = () => {
-  // const isAuth = false;
-
-  const [isAuth, setAuth] = useState(false);
-
-  const appRoutes = {
+const appRoutes = {
     LOGIN: "/login",
     REGISTER: "/register",
     MAIN: "/",
@@ -23,6 +18,10 @@ const App = () => {
     EXIT: "/exit",
     NOT_FOUND: "*",
   };
+
+  const App = () => {
+
+  const [isAuth, setAuth] = useState(false);
 
   const navigate = useNavigate();
 

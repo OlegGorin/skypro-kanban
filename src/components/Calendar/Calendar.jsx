@@ -8,7 +8,7 @@ const Calendar = () => {
         <C.CalendarNav>
           <C.CalendarMonth>Сентябрь 2023</C.CalendarMonth>
           <C.NavActions>
-            <C.NavAction dataAtion="prev">
+            <C.NavAction dataAction="prev">
               <C.NavActionSvg
                 xmlns="http://www.w3.org/2000/svg"
                 width="6"
