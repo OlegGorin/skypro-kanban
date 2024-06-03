@@ -1,6 +1,6 @@
 import { CardTopic, TopicText } from "./Card.styled";
-import { colorList } from "../../../data.js";
-import * as Cd from "./Card.styled"
+import { colorList } from "../../data.js";
+import * as Cd from "./Card.styled";
 import { Link } from "react-router-dom";
 
 const Card = ({ topic, title, date, id }) => {

@@ -130,7 +130,7 @@ body {
   display: block;
 }
 
-/* ._orange {
+._orange {
   background-color: #FFE4C2;
   color: #FF6D00;
 }
@@ -148,7 +148,7 @@ body {
 ._gray {
   background: #94A6BE;
   color: #FFFFFF;
-} */
+}
 
 ._active-category {
   opacity: 1 !important;

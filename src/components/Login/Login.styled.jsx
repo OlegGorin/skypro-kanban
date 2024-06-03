@@ -92,3 +92,10 @@ export const ModalBtnEnterHover01 = styled(Sh.Button)`
     height: 40px;
   }
 `;
+
+export const ErrorP = styled.p`
+  color: darkred;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 150%;
+`;

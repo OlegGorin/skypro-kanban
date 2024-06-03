@@ -1,7 +1,16 @@
 import * as Pu from "./PopUser.styled";
 import { Link } from "react-router-dom";
+import { removeUserFromLocalStorage } from "../../../lib/helper";
+import { user } from "../../../App";
 
-const PopUser = () => {
+const PopUser = ({ setAuth, setUser }) => {
+
+  const onExit = () => {
+    removeUserFromLocalStorage(user);
+    setUser(null);
+    setAuth(false);
+  };
+
   return (
     <Pu.PopExit>
       <Pu.PopExitContainer>
@@ -11,7 +20,9 @@ const PopUser = () => {
             <Pu.PopExitFormGroup>
               <Pu.PopExitExitYesHover01Btn $primary>
                 <Link to="/login">
-                  <Pu.LinkExitExitYes>Да, выйти</Pu.LinkExitExitYes>
+                  <Pu.LinkExitExitYes onClick={onExit}>
+                    Да, выйти
+                  </Pu.LinkExitExitYes>
                 </Link>{" "}
               </Pu.PopExitExitYesHover01Btn>
               <Pu.PopExitExitNoHover03Btn>

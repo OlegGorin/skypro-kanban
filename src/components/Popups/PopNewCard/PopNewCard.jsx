@@ -1,69 +1,61 @@
+import { Link } from "react-router-dom";
 import Calendar from "../../Calendar/Calendar";
+import * as PC from "./PopNewCard.styled";
 
 const PopNewCard = () => {
   return (
-    <div className="pop-new-card" id="popNewCard">
-      <div className="pop-new-card__container">
-        <div className="pop-new-card__block">
-          <div className="pop-new-card__content">
-            <h3 className="pop-new-card__ttl">Создание задачи</h3>
-            <a href="#" className="pop-new-card__close">
-              &#10006;
-            </a>
-            <div className="pop-new-card__wrap">
-              <form
-                className="pop-new-card__form form-new"
-                id="formNewCard"
-                action="#"
-              >
-                <div className="form-new__block">
-                  <label htmlFor="formTitle" className="subttl">
+    <PC.PopNewCard>
+      <PC.PopNewCardContainer>
+        <PC.PopNewCardBlock>
+          <PC.PopNewCardContent>
+            <PC.PopNewCardTtlH3>Создание задачи</PC.PopNewCardTtlH3>
+            <Link to="#">
+              <PC.PopNewCardClose>&#10006;</PC.PopNewCardClose>
+            </Link>
+            <PC.PopNewCardWrap>
+              <PC.PopNewCardForm id="formNewCard" action="#">
+                <PC.FormNewBlock>
                     Название задачи
-                  </label>
-                  <input
-                    className="form-new__input"
+                  <PC.Subttl htmlFor="formTitle">Название задачи</PC.Subttl>
+                  <PC.FormNewInput
                     type="text"
                     name="name"
-                    id="formTitle"
                     placeholder="Введите название задачи..."
                     autoFocus
-                  ></input>
-                </div>
-                <div className="form-new__block">
-                  <label htmlFor="textArea" className="subttl">
-                    Описание задачи
-                  </label>
-                  <textarea
-                    className="form-new__area"
+                  ></PC.FormNewInput>
+                </PC.FormNewBlock>
+                <PC.FormNewBlock>
+                  <PC.Subttl htmlFor="texArea">Описание задачи</PC.Subttl>
+                  <PC.FormNewArea
                     name="text"
                     id="textArea"
                     placeholder="Введите описание задачи..."
-                  ></textarea>
-                </div>
-              </form>
+                  ></PC.FormNewArea>
+                </PC.FormNewBlock>
+              </PC.PopNewCardForm>
               <Calendar />
-            </div>
-            <div className="pop-new-card__categories categories">
-              <p className="categories__p subttl">Категория</p>
-              <div className="categories__themes">
-                <div className="categories__theme _orange _active-category">
-                  <p className="_orange">Web Design</p>
-                </div>
-                <div className="categories__theme _green">
-                  <p className="_green">Research</p>
-                </div>
-                <div className="categories__theme _purple">
-                  <p className="_purple">Copywriting</p>
-                </div>
-              </div>
-            </div>
-            <button className="form-new__create _hover01" id="btnCreate">
+            </PC.PopNewCardWrap>
+            <PC.Categories>
+              <PC.CategoriesPSubttl>Категория</PC.CategoriesPSubttl>
+              <PC.CategoriesThemes>
+                <PC.CategoriesThemeOrangeActivity>
+                  <PC.OrangeP>Web Design</PC.OrangeP>
+                </PC.CategoriesThemeOrangeActivity>
+                <PC.CategoriesThemeGreen>
+                  <PC.GreenP>Research</PC.GreenP>
+                </PC.CategoriesThemeGreen>
+                <PC.CategoriesThemePurple>
+                  <PC.PurpleP>Copywriting</PC.PurpleP>
+                </PC.CategoriesThemePurple>
+              </PC.CategoriesThemes>
+            </PC.Categories>
+            <PC.FormNewCreateBtn $primary>
               Создать задачу
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+            </PC.FormNewCreateBtn>
+          </PC.PopNewCardContent>
+        </PC.PopNewCardBlock>
+      </PC.PopNewCardContainer>
+    </PC.PopNewCard>
   );
 };
 
