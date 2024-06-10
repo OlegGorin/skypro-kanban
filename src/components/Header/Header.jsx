@@ -1,9 +1,11 @@
 import { useState } from "react";
-// import { GlobalStyle } from "./global.styled";
 import { Container } from "../../global.styled";
 import * as H from "./Header.styled";
+import { Link } from "react-router-dom";
+// import { addCard } from "../../api";
 
 const Header = ({ setCards, cards }) => {
+  const [error, setError] = useState(null);
   const [isOpen, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -22,27 +24,48 @@ const Header = ({ setCards, cards }) => {
     setCards(newCardList);
   };
 
+  // const title = "TEST";
+  // const topic = "Research";
+  // const date = Date.now();
+  // const status = "Без статуса";
+  // const description = "Название задачи";
+
+  // const onCardAdd = async () => {
+  //   try {
+  //     const response = await addCard({
+  //       title,
+  //       topic,
+  //       status,
+  //       description,
+  //       date,
+  //     });
+  //     console.log(response);
+  //     setCards(response.tasks);
+  //   } catch (error) {
+  //     console.error(error);
+  //     setError("Ошибка при получении задач");
+  //   }
+  // };
+
   return (
     <H.Header>
       <Container>
         <H.HeaderBlock>
           <H.HeaderLogoLight>
-            <a href="" target="_self">
+            <Link>
               <H.Img src="../public/logo.png" alt="logo"></H.Img>
-            </a>
+            </Link>
           </H.HeaderLogoLight>
           <H.HeaderLogoDark>
-            <a href="" target="_self">
+            <Link>
               <H.Img src="../public/logo_dark.png" alt="logo"></H.Img>
-            </a>
+            </Link>
           </H.HeaderLogoDark>
           <H.HeaderNav>
             <H.HeaderBtnMainNew $primary onClick={onCardAdd}>
               Создать новую задачу
             </H.HeaderBtnMainNew>
-            <H.HeaderUser onClick={handleOpen}>
-              Ivan Ivanov
-            </H.HeaderUser>
+            <H.HeaderUser onClick={handleOpen}>Ivan Ivanov</H.HeaderUser>
             {isOpen && (
               <H.HeaderPopUserSet>
                 <H.PopUserSetName>Ivan Ivanov</H.PopUserSetName>
@@ -52,7 +75,9 @@ const Header = ({ setCards, cards }) => {
                   <H.Input></H.Input>
                 </H.PopUserSetTheme>
                 <H.HeaderBtnHover03>
-                  <a href="#popUser">Выйти</a>
+                  <Link to="/exit">
+                    <H.LinkBtnHover03>Выйти</H.LinkBtnHover03>
+                  </Link>
                 </H.HeaderBtnHover03>
               </H.HeaderPopUserSet>
             )}

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-      width: 100%;
-    background-color: #eaeef6;
+  width: 100%;
+  background-color: #eaeef6;
 `;
 
 export const Container = styled.div`
@@ -13,9 +13,9 @@ export const Container = styled.div`
 `;
 
 export const MainBlock = styled.div`
-    width: 100%;
-    margin: 0 auto;
-    padding: 25px 0 49px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 25px 0 49px;
 
   @media screen and (max-width: 1200px) {
     width: 100%;
@@ -25,9 +25,9 @@ export const MainBlock = styled.div`
 `;
 
 export const MainContent = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 
   @media screen and (max-width: 1200px) {
     /* display: block; */
@@ -35,6 +35,5 @@ export const MainContent = styled.div`
 `;
 
 export const DataLoading = styled.p`
-    font-size: 24px;
-
+  font-size: 24px;
 `;

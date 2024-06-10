@@ -1,12 +1,12 @@
 import styled, { css } from "styled-components";
 
-export const hover01 = css`
+export const Hover01 = css`
   &:hover {
     background-color: #33399b;
   }
 `;
 
-export const hover02 = css`
+export const Hover02 = css`
   &:hover {
     color: #33399b;
   }
@@ -16,21 +16,24 @@ export const hover02 = css`
   }
 `;
 
-export const hover03 = css`
+export const Hover03 = css`
   &:hover {
     background-color: #33399b;
-    color: #ffffff;
+    color: #FFFFFF;
+  }
+`;
+
+export const Hover03a = css`
+  &:hover {
+    color: #FFFFFF;
   }
 `;
 
 export const Button = styled.button`
-  /* width: 100%; */
   width: 153px;
   height: 30px;
   background-color: ${(props) => (props.$primary ? "#565eef" : "transparent")};
   border-radius: 4px;
-  /* margin-top: 20px;
-  margin-bottom: 20px; */
   border: ${(props) =>
     props.$primary ? "none" : "0.7px solid var(--palette-navy-60, #565eef)"};
   outline: none;
@@ -44,5 +47,38 @@ export const Button = styled.button`
   color: ${(props) => (props.$primary ? "#ffffff" : "#565eef")};
   margin-right: 10px;
 
-  ${hover03}
+   /* ${Hover03} */
+`;
+
+export const Input = styled.input`
+  width: 100%;
+  min-width: 100%;
+  border-radius: 8px;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  outline: none;
+  padding: 10px 8px;
+
+  &:first-child {
+    margin-bottom: 7px;
+  }
+  &:not(:last-child) {
+    margin-bottom: 7px;
+  }
+
+  &::-moz-placeholder {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.28px;
+    color: #94a6be;
+  }
+  &::placeholder {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.28px;
+    color: #94a6be;
+  }
 `;

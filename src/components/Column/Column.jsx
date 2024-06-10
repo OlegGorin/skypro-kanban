@@ -10,8 +10,15 @@ const Column = ({ title, cardList }) => {
         <C.Title>{title}</C.Title>
       </C.ColumnTitle>
       <Cards>
-        {cardList.map(({ id, topic, title, date }) => (
-          <Card key={id} topic={topic} title={title} date={date} />
+        {/* {cardList.map(({ id, topic, title, date }) => ( */}
+        {cardList.map((card) => (          
+          <Card 
+            key={card._id}
+            topic={card.topic}
+            title={card.title}
+            date={card.date}
+            id={card._id}
+          />
         ))}
       </Cards>
     </C.MainColumn>

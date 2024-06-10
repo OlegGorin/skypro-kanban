@@ -1,17 +1,23 @@
-import Calendar from "../Calendar/Calendar";
+import Calendar from "../../Calendar/Calendar";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import * as P from "./PopBrowse.styled"
+import * as PNC from "../PopNewCard/PopNewCard.styled"
 
 const PopBrowse = () => {
+  const { id } = useParams();
+
   return (
-    <div className="pop-browse" id="popBrowse">
-      <div className="pop-browse__container">
-        <div className="pop-browse__block">
-          <div className="pop-browse__content">
-            <div className="pop-browse__top-block">
-              <h3 className="pop-browse__ttl">Название задачи</h3>
-              <div className="categories__theme theme-top _orange _active-category">
-                <p className="_orange">Web Design</p>
-              </div>
-            </div>
+    <P.PopBrowse id="popBrowse">
+      <P.PopBrowseContainer>
+        <P.PopBrowseBlock>
+          <P.PopBrowseContent>
+            <P.PopBrowseTopBlock>
+              <P.PopBrowseTtlH3>Название задачи {id}</P.PopBrowseTtlH3>
+              <P.CategoriesThemeThemeTopOrangeActivityCategory>
+                <PNC.OrangeP>Web Design</PNC.OrangeP>
+              </P.CategoriesThemeThemeTopOrangeActivityCategory>
+            </P.PopBrowseTopBlock>
             <div className="pop-browse__status status">
               <p className="status__p subttl">Статус</p>
               <div className="status__themes">
@@ -69,7 +75,7 @@ const PopBrowse = () => {
                 </button>
               </div>
               <button className="btn-browse__close _btn-bg _hover01">
-                <a href="#">Закрыть</a>
+                <Link to="/">Закрыть</Link>
               </button>
             </div>
             <div className="pop-browse__btn-edit _hide">
@@ -91,10 +97,10 @@ const PopBrowse = () => {
                 <a href="#">Закрыть</a>
               </button>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </P.PopBrowseContent>
+        </P.PopBrowseBlock>
+      </P.PopBrowseContainer>
+    </P.PopBrowse>
   );
 };
 

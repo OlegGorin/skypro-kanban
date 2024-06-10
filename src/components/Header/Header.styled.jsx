@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { hover01 } from "../../shared.styled";
 import * as Sh from "../../shared.styled";
 
 export const Header = styled.div`
@@ -122,7 +121,7 @@ export const HeaderBtnMainNew = styled(Sh.Button)`
   line-height: 1px;
   margin-right: 20px;
 
-  ${hover01}
+  ${Sh.Hover01}
 `;
 
 export const HeaderUser = styled.div`
@@ -149,11 +148,18 @@ export const HeaderUser = styled.div`
     padding: 0;
   }
 
-  ${Sh.hover02}
+  ${Sh.Hover02}
 `;
 
 export const HeaderBtnHover03 = styled(Sh.Button)`
   width: 70px;
   height: 25px;
   margin-left: 35px;
+
+  ${Sh.Hover03}
+`;
+
+export const LinkBtnHover03 = styled.p`
+  color: #565eef;
+  ${Sh.Hover03a};
 `;

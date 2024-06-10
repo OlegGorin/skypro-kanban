@@ -1,8 +1,9 @@
 import { CardTopic, TopicText } from "./Card.styled";
-import { colorList } from "../../../data.js";
-import * as Cd from "./Card.styled"
+import { colorList } from "../../data.js";
+import * as Cd from "./Card.styled";
+import { Link } from "react-router-dom";
 
-const Card = ({ topic, title, date }) => {
+const Card = ({ topic, title, date, id }) => {
   const colorClass = colorList[topic] || "";
 
   return (
@@ -13,13 +14,13 @@ const Card = ({ topic, title, date }) => {
             <TopicText>{topic}</TopicText>
           </CardTopic>
 
-          <a href="#popBrowse" target="_self">
+          <Link to={`/card/${id}`}>
             <Cd.CardBtn>
               <Cd.CardBtnDiv></Cd.CardBtnDiv>
               <Cd.CardBtnDiv></Cd.CardBtnDiv>
               <Cd.CardBtnDiv></Cd.CardBtnDiv>
             </Cd.CardBtn>
-          </a>
+          </Link>
         </Cd.CardGroup>
         <Cd.CardContent>
           <a href="" target="_blank">
