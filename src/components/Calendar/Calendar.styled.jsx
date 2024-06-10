@@ -9,7 +9,7 @@ export const PopNewCardCalendar = styled.div`
 export const CalendarTtl = styled.p`
   margin-bottom: 14px;
   padding: 0 7px;
-  padding: 0;
+  /* padding: 0; */
   color: #000;
   font-size: 14px;
   font-weight: 600;
@@ -155,4 +155,44 @@ export const CalendarP = styled.p`
 
 export const CalendarPSpan = styled.span`
   color: #000000;
+`;
+
+export const CalendarBox = styled.div`
+  width: 182px;
+  margin-bottom: 20px;
+`;
+
+export const CalendarPicker = styled.div`
+  /* padding: 0; */
+  width: 182px;
+  /* height: 126px; */
+  /* height: 86px; */
+  border-radius: 50%;
+  color: #94a6be;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  --rdp-cell-size: 22px;
+  /* --rdp-caption-font-size: 10px; */
+  /* --rdp-accent-color: #0000ff; */
+  /* --rdp-accent-color: #0000ff; */
+  /* --rdp-background-color: #e7edff; */
+  /* --rdp-accent-color-dark: #3003e1; */
+  /* --rdp-background-color-dark: #180270; */
+  /* --rdp-outline: 2px solid var(--rdp-accent-color); */
+  /* --rdp-outline-selected: 3px solid var(--rdp-accent-color); */
+  /* --rdp-selected-color: #fff; */
+  /* --rdp-accent-color: indigo; */
+  /* --rdp-background-color: gray; */
+  /* --rdp-cell-size: 20px; */
+  /* --rdp-caption-font-size: 10px; */
+  /* --rdp-background-color: #94A6BE; */
+  /* --rdp-selected-color: #FFFFFF; */
+  margin: 2px;
+
+  /* &:hover { */
+  /* color: #94a6be; */
+  /* background-color: #eaeef6; */
+  /* background-color: #546992; */
 `;

@@ -3,6 +3,7 @@ export const appRoutes = {
     REGISTER: "/register",
     MAIN: "/",
     CARD: "/card/:id",
+    NEWCARD: "/newcard",
     EXIT: "/exit",
     NOT_FOUND: "*",
   };

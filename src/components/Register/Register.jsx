@@ -4,10 +4,12 @@ import { ErrorP } from "../Login/Login.styled";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { regUser } from "../../api";
-import { saveUserToLocalStorage } from "../../lib/helper";
 import { appRoutes } from "../../routes";
+import { useUser } from "../../hooks/useUser";
 
-const Register = ({ setAuth, setUser }) => {
+const Register = () => {
+
+  const { setUser } = useUser();
   const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
@@ -49,10 +51,8 @@ const Register = ({ setAuth, setUser }) => {
       });
 
       console.log("REGISTER RESPONSE", response);
-      console.log(response.user);
-      saveUserToLocalStorage(response.user);
 
-      setAuth(true);
+      setError(null);
       setUser(response.user);
       navigate(appRoutes.MAIN);
     } catch (error) {

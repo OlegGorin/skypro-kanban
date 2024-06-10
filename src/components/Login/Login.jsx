@@ -4,9 +4,11 @@ import * as Sh from "../../shared.styled";
 import { useState } from "react";
 import { loginUser } from "../../api";
 import { appRoutes } from "../../routes";
-import { saveUserToLocalStorage } from "../../lib/helper";
+import { useUser } from "../../hooks/useUser";
 
-const Login = ({ setAuth, setUser }) => {
+const Login = () => {
+
+  const { setUser } = useUser();
   const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
@@ -42,9 +44,9 @@ const Login = ({ setAuth, setUser }) => {
 
       console.log("LOGIN RESPONSE", response);
       console.log(response.user);
-      saveUserToLocalStorage(response.user);
+      
 
-      setAuth(true);
+      setError(null);
       setUser(response.user);
       navigate(appRoutes.MAIN);
     } catch (error) {

@@ -36,6 +36,10 @@ export const PopExitBlock = styled.div`
   border-radius: 10px;
   border: 0.7px solid #d4dbe5;
   box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
+
+  @media only screen and (max-width: 375px) {
+    padding: 50px 20px;
+  }
 `;
 
 export const PopExitTtl = styled.div`
@@ -54,21 +58,51 @@ export const PopExitForm = styled.form`
   justify-content: space-between;
 `;
 
-export const PopExitFormGroup = styled(PopExitForm)``;
+export const PopExitFormGroup = styled(PopExitForm)`
+  @media only screen and (max-width: 375px) {
+    display: block;
+  }
+`;
 
 export const PopExitExitYesHover01Btn = styled(Sh.Button)`
+  @media only screen and (max-width: 375px) {
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  @media only screen and (max-width: 375px) {
+    width: 100%;
+    height: 40px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
   ${Sh.Hover01};
 `;
 
 export const PopExitExitNoHover03Btn = styled(Sh.Button)`
+  @media only screen and (max-width: 375px) {
+    display: block;
+    width: 100%;
+    height: 40px;
+  }
+
+  @media only screen and (max-width: 375px) {
+    width: 100%;
+    height: 40px;
+  }
+
   ${Sh.Hover03};
 `;
 
-export const LinkExitExitNo = styled.p`
+export const LinkFontNoPrimary = styled.p`
   color: #565eef;
   ${Sh.Hover03a};
 `;
 
-export const LinkExitExitYes = styled.p`
-color: #ffffff;
+export const LinkFontPrimary = styled.p`
+  color: #ffffff;
 `;

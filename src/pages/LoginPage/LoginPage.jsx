@@ -1,13 +1,12 @@
 import Login from "../../components/Login/Login";
 import { GlobalStyleSignin, WrapperSign } from "../../global.styled";
 
-// export const LoginPage = ({ login }) => {
-export const LoginPage = ({ setAuth, setUser }) => {
+  export const LoginPage = () => {  
   return (
     <>
       <GlobalStyleSignin />
       <WrapperSign>
-        <Login setAuth={setAuth} setUser={setUser} />        
+        <Login />        
       </WrapperSign>
     </>
   );

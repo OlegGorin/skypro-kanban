@@ -22,7 +22,7 @@ export async function onLoginFetch({ login, password }) {
   return data;
 }
 
-export async function addCard({ title, topic, status, description, date }) {
+export async function addCard({ token, title, topic, status, description, date }) {
   const response = await fetch(pathApi, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -41,6 +41,23 @@ export async function addCard({ title, topic, status, description, date }) {
     throw new Error("Ошибка сервера");
   } else if (response.status === 400) {
     throw new Error("Плохой запрос");
+  } else if (!response.ok & (response.status === 401)) {
+    throw new Error("Пользователь не найден");
+  }
+
+  const data = await response.json();
+  return data;
+}
+
+export async function deleteCard({ token }, id) {
+  const response = await fetch(`${pathApi}/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+  if (!response.ok & (response.status === 500)) {
+    throw new Error("Ошибка сервера");
   }
 
   const data = await response.json();
@@ -76,7 +93,7 @@ export async function loginUser({ login, password }) {
     throw new Error("Неверный логин или пароль");
   } else if (!response.ok & (response.status === 500)) {
     throw new Error("Ошибка соединения");
-  }
+  } 
 
   const data = await response.json();
   return data;
@@ -87,7 +104,6 @@ export async function getCards({ token }) {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
-      // Authorization: token,
     },
   });
   if (!response.ok & (response.status === 500)) {

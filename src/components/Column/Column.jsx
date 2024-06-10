@@ -1,4 +1,3 @@
-// import { cardList } from "../../../data";
 import Card from "../Card/Card";
 import * as C from "./Column.styled";
 import { Cards } from "../Card/Card.styled";
@@ -10,7 +9,6 @@ const Column = ({ title, cardList }) => {
         <C.Title>{title}</C.Title>
       </C.ColumnTitle>
       <Cards>
-        {/* {cardList.map(({ id, topic, title, date }) => ( */}
         {cardList.map((card) => (          
           <Card 
             key={card._id}
