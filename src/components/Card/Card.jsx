@@ -1,10 +1,12 @@
-import { CardTopic, TopicText } from "./Card.styled";
+import { CardTopic, TopicText } from "./Card.styled.js";
 import { colorList } from "../../data.js";
-import * as Cd from "./Card.styled";
+import * as Cd from "./Card.styled.js";
 import { Link } from "react-router-dom";
+import { format } from "date-fns";
 
 const Card = ({ topic, title, date, id }) => {
   const colorClass = colorList[topic] || "";
+  const resDate = format(new Date(date), "dd.MM.yy")
 
   return (
     <Cd.CardsItem>
@@ -55,7 +57,7 @@ const Card = ({ topic, title, date, id }) => {
                 </clipPath>
               </defs>
             </Cd.CardDateSvg>
-            <Cd.CardDateP>{date}</Cd.CardDateP>
+            <Cd.CardDateP>{resDate}</Cd.CardDateP>
           </Cd.CardDate>
         </Cd.CardContent>
       </Cd.CardsCard>

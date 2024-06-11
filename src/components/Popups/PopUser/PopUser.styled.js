@@ -51,7 +51,8 @@ export const PopExitTtl = styled.div`
   margin-bottom: 20px;
 `;
 
-export const PopExitForm = styled.form`
+// export const PopExitForm = styled.form`
+export const PopExitForm = styled.div`
   width: 100%;
   display: flex;
   align-items: center;

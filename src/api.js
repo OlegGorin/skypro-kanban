@@ -1,26 +1,25 @@
-const token = "ksdfsksdfjfsdjk";
 const pathApi = "https://wedev-api.sky.pro/api/kanban";
 const pathLogin = "https://wedev-api.sky.pro/api/user";
 
-export async function onLoginFetch({ login, password }) {
-  const response = await fetch(pathApi, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    method: "POST",
-    body: JSON.stringify({
-      login: login,
-      password: password,
-    }),
-  });
+// export async function onLoginFetch({ login, password }) {
+//   const response = await fetch(pathApi, {
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//     method: "POST",
+//     body: JSON.stringify({
+//       login: login,
+//       password: password,
+//     }),
+//   });
 
-  if (!response.ok) {
-    throw new Error("Ошибка сервера");
-  }
+//   if (!response.ok) {
+//     throw new Error("Ошибка сервера");
+//   }
 
-  const data = await response.json();
-  return data;
-}
+//   const data = await response.json();
+//   return data;
+// }
 
 export async function addCard({ token, title, topic, status, description, date }) {
   const response = await fetch(pathApi, {

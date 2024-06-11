@@ -20,6 +20,10 @@ export const CalendarBlock = styled.div`
   display: block;
 `;
 
+export const CalendarContent = styled.div`
+  margin-bottom: 12px;
+`;
+
 export const CalendarNav = styled.nav`
   width: 100%;
   display: flex;
@@ -57,10 +61,6 @@ export const NavAction = styled.div`
 
 export const NavActionSvg = styled.svg`
   fill: #94a6be;
-`;
-
-export const CalendarContent = styled.div`
-  margin-bottom: 12px;
 `;
 
 export const CalendarDaysNames = styled.div`

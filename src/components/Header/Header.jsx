@@ -28,12 +28,12 @@ const Header = () => {
         <H.HeaderBlock>
           <H.HeaderLogoLight>
             <Link>
-              <H.Img src="../public/logo.png" alt="logo"></H.Img>
+              <H.Img src="../images/logo.png" alt="logo"></H.Img>
             </Link>
           </H.HeaderLogoLight>
           <H.HeaderLogoDark>
             <Link>
-              <H.Img src="../public/logo_dark.png" alt="logo"></H.Img>
+              <H.Img src="../images/logo_dark.png" alt="logo"></H.Img>
             </Link>
           </H.HeaderLogoDark>
           <H.HeaderNav>

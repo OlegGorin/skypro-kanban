@@ -42,8 +42,8 @@ const Login = () => {
         password: formValues.password,
       });
 
-      console.log("LOGIN RESPONSE", response);
-      console.log(response.user);
+      // console.log("LOGIN RESPONSE", response);
+      // console.log(response.user);
       
 
       setError(null);

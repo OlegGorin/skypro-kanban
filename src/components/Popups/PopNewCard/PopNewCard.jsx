@@ -11,7 +11,7 @@ import { useTasks } from "../../../hooks/useTasks";
 const topics = [
   { name: "Web Design", color: "orange" },
   { name: "Research", color: "green" },
-  { name: "Copywrighting", color: "purple" },
+  { name: "Copywriting", color: "purple" },
 ];
 
 const PopNewCard = () => {
@@ -58,6 +58,11 @@ const PopNewCard = () => {
 
     if (!formValues.text || formValues.text.trim() === "") {
       setError("Не введено описание задачи");
+      return;
+    }
+
+    if (!topicVal) {
+      setError("Не выбрана тема задачи");
       return;
     }
 

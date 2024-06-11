@@ -30,8 +30,7 @@ export default function MainPage() {
       }
     };
     fetchData();
-// }, [userData.token]);
-}, );
+}, [userData.token, setTasks]);
 
   return (
     <>
