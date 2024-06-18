@@ -43,6 +43,17 @@ body {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   color: #000000;
 }
+
+.rdp {
+  --rdp-cell-size: 26px; /*Size of the day cells.*/
+  --rdp-caption-font-size: 14px; /*Font size for the caption labels.*/
+  --rdp-accent-color: #94a6be; /*Accent color for the background of selected days.*/
+}
+
+.rdp {
+  margin-left: 0;
+  margin-right: 0;
+}
 `;
 
 export const Container = styled.div`

@@ -1,51 +1,26 @@
 import { useState } from "react";
 import { Container } from "../../global.styled";
 import * as H from "./Header.styled";
-import { Link } from "react-router-dom";
-// import { addCard } from "../../api";
+import { Link, useNavigate } from "react-router-dom";
+import { appRoutes } from "../../routes";
+import { useUser } from "../../hooks/useUser";
 
-const Header = ({ setCards, cards }) => {
-  const [error, setError] = useState(null);
+const Header = () => {
   const [isOpen, setOpen] = useState(false);
+
+  const {userData} = useUser();
+  const currentUser = userData.name;
+  const currentLogin = userData.login;
 
   const handleOpen = () => {
     setOpen((prev) => !prev);
   };
 
+  const navigate = useNavigate();
+
   const onCardAdd = () => {
-    const newCard = {
-      id: Date.now(),
-      title: "TEST",
-      topic: "Research",
-      date: "12.05.24",
-      status: "Без статуса",
-    };
-    const newCardList = [...cards, newCard];
-    setCards(newCardList);
+    navigate(appRoutes.NEWCARD);
   };
-
-  // const title = "TEST";
-  // const topic = "Research";
-  // const date = Date.now();
-  // const status = "Без статуса";
-  // const description = "Название задачи";
-
-  // const onCardAdd = async () => {
-  //   try {
-  //     const response = await addCard({
-  //       title,
-  //       topic,
-  //       status,
-  //       description,
-  //       date,
-  //     });
-  //     console.log(response);
-  //     setCards(response.tasks);
-  //   } catch (error) {
-  //     console.error(error);
-  //     setError("Ошибка при получении задач");
-  //   }
-  // };
 
   return (
     <H.Header>
@@ -53,23 +28,23 @@ const Header = ({ setCards, cards }) => {
         <H.HeaderBlock>
           <H.HeaderLogoLight>
             <Link>
-              <H.Img src="../public/logo.png" alt="logo"></H.Img>
+              <H.Img src="../images/logo.png" alt="logo"></H.Img>
             </Link>
           </H.HeaderLogoLight>
           <H.HeaderLogoDark>
             <Link>
-              <H.Img src="../public/logo_dark.png" alt="logo"></H.Img>
+              <H.Img src="../images/logo_dark.png" alt="logo"></H.Img>
             </Link>
           </H.HeaderLogoDark>
           <H.HeaderNav>
             <H.HeaderBtnMainNew $primary onClick={onCardAdd}>
               Создать новую задачу
             </H.HeaderBtnMainNew>
-            <H.HeaderUser onClick={handleOpen}>Ivan Ivanov</H.HeaderUser>
+            <H.HeaderUser onClick={handleOpen}>{currentUser}</H.HeaderUser>            
             {isOpen && (
               <H.HeaderPopUserSet>
-                <H.PopUserSetName>Ivan Ivanov</H.PopUserSetName>
-                <H.PopUserSetMail>ivan.ivanov@gmail.com</H.PopUserSetMail>
+                <H.PopUserSetName>{currentUser}</H.PopUserSetName>
+                <H.PopUserSetMail>{currentLogin}</H.PopUserSetMail>                
                 <H.PopUserSetTheme>
                   <H.PopUserSetThemeP>Темная тема</H.PopUserSetThemeP>
                   <H.Input></H.Input>
