@@ -1,7 +1,6 @@
 import * as C from "./Calendar.styled";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
-// import "../../../app/global.css";
 import { format } from "date-fns";
 import { ru } from "date-fns/locale";
 

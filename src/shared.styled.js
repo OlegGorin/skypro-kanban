@@ -19,13 +19,13 @@ export const Hover02 = css`
 export const Hover03 = css`
   &:hover {
     background-color: #33399b;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 `;
 
 export const Hover03a = css`
   &:hover {
-    color: #FFFFFF;
+    color: #ffffff;
   }
 `;
 
@@ -47,7 +47,7 @@ export const Button = styled.button`
   color: ${(props) => (props.$primary ? "#ffffff" : "#565eef")};
   margin-right: 10px;
 
-   /* ${Hover03} */
+  /* ${Hover03} */
 `;
 
 export const Input = styled.input`
@@ -81,4 +81,8 @@ export const Input = styled.input`
     letter-spacing: -0.28px;
     color: #94a6be;
   }
+`;
+
+export const InputBorderRed = styled(Input)`
+  border: 0.7px solid red;
 `;

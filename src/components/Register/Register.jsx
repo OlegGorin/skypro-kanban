@@ -8,7 +8,6 @@ import { appRoutes } from "../../routes";
 import { useUser } from "../../hooks/useUser";
 
 const Register = () => {
-
   const { setUser } = useUser();
   const navigate = useNavigate();
 
@@ -19,10 +18,16 @@ const Register = () => {
   });
 
   const [error, setError] = useState(null);
+  const [nameError, setNameError] = useState(false);
+  const [logError, setLogError] = useState(false);
+  const [passError, setPassError] = useState(false);
 
   const onInputChange = (event) => {
     const { name, value } = event.target;
     setFormValues({ ...formValues, [name]: value });
+    setLogError(false);
+    setPassError(false);
+    setNameError(false);
   };
 
   const onReg = async (event) => {
@@ -30,16 +35,19 @@ const Register = () => {
 
     if (!formValues.name || formValues.name.trim() === "") {
       setError("Не введено имя");
+      setNameError(true);
       return;
     }
 
     if (!formValues.login || formValues.login.trim() === "") {
       setError("Не введена почта");
+      setLogError(true);
       return;
     }
 
     if (!formValues.password || formValues.password.trim() === "") {
       setError("Не введен пароль");
+      setPassError(true);
       return;
     }
 
@@ -73,38 +81,77 @@ const Register = () => {
             <R.ModalTtlH2>Регистрация</R.ModalTtlH2>
           </R.ModalTtl>
           <R.ModalFormLogin action="#">
-            <Sh.Input
-              type="text"
-              name="name"
-              placeholder="Имя"
-              value={formValues.name}
-              onChange={onInputChange}
-            />
-            <Sh.Input
-              type="text"
-              name="login"
-              placeholder="Эл. почта"
-              value={formValues.login}
-              onChange={onInputChange}
-            />
-            <Sh.Input
-              type="password"
-              name="password"
-              placeholder="Пароль"
-              value={formValues.password}
-              onChange={onInputChange}
-            />
+            {!nameError ? (
+              <Sh.Input
+                type="text"
+                name="name"
+                placeholder="Имя"
+                value={formValues.name}
+                onChange={onInputChange}
+              />
+            ) : (
+              <Sh.InputBorderRed
+                type="text"
+                name="name"
+                placeholder="Имя"
+                value={formValues.name}
+                onChange={onInputChange}
+              />
+            )}
+            {!logError ? (
+              <Sh.Input
+                type="text"
+                name="login"
+                placeholder="Эл. почта"
+                value={formValues.login}
+                onChange={onInputChange}
+              />
+            ) : (
+              <Sh.InputBorderRed
+                type="text"
+                name="login"
+                placeholder="Эл. почта"
+                value={formValues.login}
+                onChange={onInputChange}
+              />
+            )}
+            {!passError ? (
+              <Sh.Input
+                type="password"
+                name="password"
+                placeholder="Пароль"
+                value={formValues.password}
+                onChange={onInputChange}
+              />
+            ) : (
+              <Sh.InputBorderRed
+                type="password"
+                name="password"
+                placeholder="Пароль"
+                value={formValues.password}
+                onChange={onInputChange}
+              />
+            )}
             <br />
             {error && <ErrorP>{error}</ErrorP>}
+            {!nameError & !logError & !passError ? (
             <R.ModalBtnSignupEnterHover01 $primary>
               <Link>
-                <R.ModalBtnSignupEnterA
-                  onClick={onReg}
-                >
+                <R.ModalBtnSignupEnterA onClick={onReg}>
                   Зарегистрироваться
                 </R.ModalBtnSignupEnterA>
-              </Link>{" "}
+              </Link>
             </R.ModalBtnSignupEnterHover01>
+            ) : (
+              <R.ModalBtnSignupEnterHover01Gray disabled>
+              <Link>
+                <R.ModalBtnSignupEnterA onClick={onReg}>
+                  Зарегистрироваться
+                </R.ModalBtnSignupEnterA>
+              </Link>
+            </R.ModalBtnSignupEnterHover01Gray>
+            )
+}
             <R.ModalFormGroup>
               <R.ModalFormGroupP>Уже есть аккаунт?</R.ModalFormGroupP>
               <Link to="/login">

@@ -10,7 +10,6 @@ const PopUser = () => {
       <Pu.PopExitContainer>
         <Pu.PopExitBlock>
           <Pu.PopExitTtl>Выйти из аккаунта?</Pu.PopExitTtl>
-          {/* <Pu.PopExitForm action="#"> */}
           <Pu.PopExitForm>
             <Pu.PopExitFormGroup>
               <Pu.PopExitExitYesHover01Btn $primary>

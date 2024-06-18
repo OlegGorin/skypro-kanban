@@ -93,6 +93,13 @@ export const ModalBtnEnterHover01 = styled(Sh.Button)`
   }
 `;
 
+export const ModalBtnEnterHover01Gray = styled(ModalBtnEnterHover01)`
+  background-color: gray;
+  border: 0.7px solid var(--palette-navy-60, gray);
+  color: #fff;
+  pointer-events: none;
+`;
+
 export const ErrorP = styled.p`
   color: darkred;
   font-size: 18px;

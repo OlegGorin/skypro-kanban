@@ -17,3 +17,9 @@ export const topicStyles = {
     },
 };
 
+export const topics = [
+    { name: "Web Design", color: "orange" },
+    { name: "Research", color: "green" },
+    { name: "Copywriting", color: "purple" },
+  ];
+

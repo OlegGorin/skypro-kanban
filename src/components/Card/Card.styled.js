@@ -19,6 +19,21 @@ export const CardTopic = styled.div`
   }
 `;
 
+export const CategoriesTheme = styled(CardTopic)`
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 1 !important;
+
+  & p {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
+  white-space: nowrap;
+}
+`;
+
 export const Cards = styled.div`
   width: 100%;
   display: block;

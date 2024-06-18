@@ -53,8 +53,7 @@ export const ModalTtl = styled.div`
   margin-bottom: 20px;
 `;
 
-export const ModalTtlH2 = styled(ModalTtl)`
-`;
+export const ModalTtlH2 = styled(ModalTtl)``;
 
 export const ModalFormLogin = styled.form`
   width: 100%;
@@ -81,8 +80,6 @@ export const ModalFormGroupA = styled.p`
 `;
 export const ModalFormGroupP = styled.p``;
 
-
-
 export const ModalBtnSignupEnterHover01 = styled(Sh.Button)`
   width: 100%;
   height: 30px;
@@ -95,6 +92,15 @@ export const ModalBtnSignupEnterHover01 = styled(Sh.Button)`
   @media screen and (max-width: 375px) {
     height: 40px;
   }
+`;
+
+export const ModalBtnSignupEnterHover01Gray = styled(
+  ModalBtnSignupEnterHover01
+)`
+  background-color: gray;
+  border: 0.7px solid var(--palette-navy-60, gray);
+  color: #fff;
+  pointer-events: none;
 `;
 
 export const ModalBtnSignupEnterA = styled.p`

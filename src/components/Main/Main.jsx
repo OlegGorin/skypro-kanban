@@ -1,5 +1,5 @@
 import Column from "../Column/Column";
-import { statusList } from "../../StatusList";
+import { statusList } from "../../lib/StatusList";
 import * as S from "./Main.styled";
 import { Container } from "../../global.styled";
 
