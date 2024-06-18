@@ -7,12 +7,7 @@ import * as L from "../../Login/Login.styled";
 import { appRoutes } from "../../../routes";
 import { useUser } from "../../../hooks/useUser";
 import { useTasks } from "../../../hooks/useTasks";
-
-const topics = [
-  { name: "Web Design", color: "orange" },
-  { name: "Research", color: "green" },
-  { name: "Copywriting", color: "purple" },
-];
+import { topics } from "../../../lib/topic";
 
 const PopNewCard = () => {
   const [selDate, setDate] = useState(null);

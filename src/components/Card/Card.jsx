@@ -1,4 +1,4 @@
-import { CardTopic, TopicText } from "./Card.styled.js";
+import { CardTopic, TopicText } from "./Card.styled";
 import { colorList } from "../../data.js";
 import * as Cd from "./Card.styled.js";
 import { Link } from "react-router-dom";

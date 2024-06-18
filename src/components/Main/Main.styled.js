@@ -30,7 +30,7 @@ export const MainContent = styled.div`
   flex-direction: row;
 
   @media screen and (max-width: 1200px) {
-    /* display: block; */
+    display: block;
   }
 `;
 

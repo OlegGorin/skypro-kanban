@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import * as PNC from "../PopNewCard/PopNewCard.styled";
 import * as Sh from "../../../shared.styled";
+import { topicStyles } from "../../../lib/topic";
 
 export const PopBrowse = styled.div`
   display: block;
@@ -76,6 +77,26 @@ export const PopBrowseTtlH3 = styled.h3`
   line-height: 24px;
 `;
 
+export const TopicText = styled.p`
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
+  /* white-space: nowrap; */
+`;
+
+export const CategoriesTheme = styled.div`
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  background-color: ${({ $topicColor }) =>
+    topicStyles[$topicColor]?.backgroundColor || "#b4fdd1"};
+  ${TopicText} {
+    color: ${({ $topicColor }) => topicStyles[$topicColor]?.color || "#06b16e"};
+  }
+`;
+
 export const CategoriesThemeThemeTopOrangeActiveCategory = styled(
   PNC.CategoriesThemeOrangeActive
 )`
@@ -99,18 +120,39 @@ export const StatusPSubttl = styled(PNC.Subttl)`
 
 export const StatusThemes = styled.div`
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
 `;
 
-export const StatusTheme = styled.div`
+export const StatusTheme = styled.label`
+  display: inline-block;
   border-radius: 24px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94a6be;
+  cursor: pointer;
+  background: ${(props) =>
+    props.$selected || props.checked ? "#94a6be" : "#ffffff"};
+  color: ${(props) =>
+    props.$selected || props.checked ? "#ffffff" : "#94a6be"};
   padding: 11px 14px 10px;
   margin-right: 7px;
   margin-bottom: 7px;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -0.14px;
+
+  /* opacity: ${(props) => (props.checked ? "1" : "0.4")}; */
+
+  input {
+    display: none;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: -0.14px;
+  }
 `;
 
 export const StatusThemeP = styled.p`
@@ -203,6 +245,14 @@ export const ThemeDown = styled(PopBrowseContent)`
   align-items: flex-start;
 `;
 
+export const ThemeDownAll = styled(PopBrowseContent)`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
+
 export const CategoriesPSubttl = styled(PNC.Subttl)`
   margin-bottom: 14px;
 `;
@@ -256,7 +306,7 @@ export const BtnBrowseCloseHover01 = styled(BtnBrowseEdit)`
 `;
 
 export const PopBrowseBtnEdit = styled(PopBrowseBtnBrowse)`
-  display: none;
+  /* display: none; */
 `;
 
 export const BtnEditEditHover01 = styled(BtnBrowseEdit)`

@@ -1,16 +1,12 @@
 import Register from "../../components/Register/Register";
 import { GlobalStyleSignup, WrapperSign } from "../../global.styled";
 
-export const RegisterPage = ({ setAuth, setUserData }) => {
-
-  setAuth(false);
-  setUserData("");
-
+export const RegisterPage = () => {
   return (
     <>
       <GlobalStyleSignup />
       <WrapperSign>
-        <Register setAuth={setAuth} setUserData={setUserData} />
+        <Register />
       </WrapperSign>
     </>
   );

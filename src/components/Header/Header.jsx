@@ -45,10 +45,10 @@ const Header = () => {
               <H.HeaderPopUserSet>
                 <H.PopUserSetName>{currentUser}</H.PopUserSetName>
                 <H.PopUserSetMail>{currentLogin}</H.PopUserSetMail>                
-                <H.PopUserSetTheme>
+                {/* <H.PopUserSetTheme>
                   <H.PopUserSetThemeP>Темная тема</H.PopUserSetThemeP>
                   <H.Input></H.Input>
-                </H.PopUserSetTheme>
+                </H.PopUserSetTheme> */}
                 <H.HeaderBtnHover03>
                   <Link to="/exit">
                     <H.LinkBtnHover03>Выйти</H.LinkBtnHover03>
